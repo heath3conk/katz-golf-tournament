@@ -2,13 +2,33 @@
 <html>
 <head>
   <title>KatzGolfTournament</title>
+    <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+<nav class="row">
+  <%= image_tag "Christopher_Katzenstein.jpg", class:"col s3 m4 l2 katz-pic" %>
+  <%= link_to "HOME", pages_path %>
+  <%= link_to "SPONSOR", sponsorships_new_path, class: "col s3 m4 l6 right-align nav-link" %>
+  <%= link_to "REGISTER PLAYERS", players_new_path, class: "col s3 m2 l2 right-align nav-link" %>
+  <%= link_to "DINNER ONLY", diners_new_path, class: "col s3 m2 l2 right-align nav-link" %>
+  <%= link_to "CONTACT", users_show_path, class: "col s3 m2 l2 right-align nav-link" %>
+</nav>
+
 <body>
 
 <%= yield %>
 
 </body>
+
+<footer>
+  <div class="container center-align charity-info">
+    <p>Proceeds benefit the Christopher Katzenstein Scholarship Fund</p>
+    <p>Federal Tax ID #0400517142</p>
+  </div>
+</footer>
+
 </html>

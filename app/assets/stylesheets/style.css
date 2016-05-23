@@ -1,0 +1,61 @@
+nav {
+  background-color: Maroon;
+}
+
+.nav-link {
+  color: Linen;
+  font-size: 15px;
+}
+
+.katz-pic {
+  /*max-height: 500%;*/
+}
+
+body {
+  background: url("https://pixabay.com/static/uploads/photo/2014/02/27/16/09/grass-275986_960_720.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.banner {
+  background-color: Linen;
+  color: Maroon;
+  clear: both;
+}
+.headline {
+  font-size: 40px;
+  margin: 3px;
+}
+
+.info {
+  font-size: 35px;
+  margin: 3px;
+}
+
+.btn-large {
+  background-color: Maroon;
+  font: Linen !important;
+  margin: 5px;
+}
+
+.btn-large:hover {
+  background-color: Maroon;
+}
+
+.buttons {
+  float: left;
+  margin-left: 43%;
+}
+
+.golf-picture {
+  float: right;
+}
+
+.charity-info {
+  background-color: Maroon;
+  clear: both;
+  font-size: 25px;
+  color: Linen;
+}

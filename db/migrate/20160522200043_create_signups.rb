@@ -8,7 +8,7 @@ class CreateSignups < ActiveRecord::Migration
       t.string :contact_number
       t.integer :additional_donation
       t.integer :total
-
+      t.integer :paid_status
 
       t.timestamps null: false
     end

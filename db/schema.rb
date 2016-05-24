@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160522202919) do
     t.string   "contact_name"
     t.string   "company_name"
     t.string   "email"
-    t.string   "address"
+    t.string   "full_address"
     t.string   "contact_number"
     t.integer  "additional_donation"
     t.integer  "total"

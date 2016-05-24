@@ -8,12 +8,17 @@ class Signup < ActiveRecord::Base
   validates :contact_number, presence: true, uniqueness: true
 
   has_many :sponsorships
+  accepts_nested_attributes_for :sponsorships
   has_many :players
+  accepts_nested_attributes_for :players
   has_many :diners
+  accepts_nested_attributes_for :diners
 
   attr_accessor :street_address, :city, :state, :zip, :first_name, :last_name
   before_validation :full_address, on: :create
   before_validation :contact_name, on: :create
+
+  before_action :set_signup, only: [:edit, :show]
 
   def contact_name
     self.contact_name = "#{self.first_name} #{self.last_name}"
@@ -21,6 +26,27 @@ class Signup < ActiveRecord::Base
 
   def full_address
     self.full_address = "#{self.street_address}, #{self.city}, #{self.state} #{self.zip}"
+  end
+
+  def create
+    @signup = Signup.new(signup_params)
+
+    if @signup.save
+      redirect_to @signup, notice: 'Your signup was successful. Thank you!'
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def signup_params
+    p params 
+    params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, players_attributes: [:player_first_name, :player_last_name], diners_attributes: [:diner_first_name, :diner_last_name], sponsorships_attributes: [:sponsorship_type])
+  end
+
+  def set_signup
+    @signup = Signup.find(params[:id])
   end
 
 end

@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     @signup = Signup.new
     @players = @signup.players
     @errors = []
-    render partial: 'new_player', locals: { errors: @errors }
+    # render partial: 'new_player', locals: { errors: @errors }
   end
 
 end

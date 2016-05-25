@@ -18,8 +18,6 @@ class Signup < ActiveRecord::Base
   before_validation :full_address, on: :create
   before_validation :contact_name, on: :create
 
-  before_action :set_signup, only: [:edit, :show]
-
   def contact_name
     self.contact_name = "#{self.first_name} #{self.last_name}"
   end
@@ -28,15 +26,6 @@ class Signup < ActiveRecord::Base
     self.full_address = "#{self.street_address}, #{self.city}, #{self.state} #{self.zip}"
   end
 
-  def create
-    @signup = Signup.new(signup_params)
-
-    if @signup.save
-      redirect_to @signup, notice: 'Your signup was successful. Thank you!'
-    else
-      render :edit
-    end
-  end
 
   private
 

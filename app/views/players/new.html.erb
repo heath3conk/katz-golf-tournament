@@ -1,21 +1,27 @@
-<div class="container center-align player-reg-info">
-  <h1>Join us for a great day of golf!</h1>
-  <h2>Scoring/Rules: Scramble</h2>
-  <h2>Awards & prizes during dinner</h2>
-  <h3>Cost per player: $150</h3>
-  <p>Includes: golf, cart, lunch and dinner</p>
-  <p>12:30pm registration, 1:00pm tee time</p>
+<div class="container player-reg-info">
+  <h1 class="center-align reg-info">Join us for a great day of golf!</h1>
+  <h2 class="center-align reg-info">Cost per player: $150</h2>
+  <h3 class="center-align reg-info">Includes: golf, cart, lunch and dinner</h3>
+  <h3 class="center-align reg-info">12:30pm registration, 1:00pm tee time</h3>
+  <h2 class="center-align reg-info">Scoring/Rules: Scramble</h2>
+  <h3 class="center-align reg-info">Awards & prizes during dinner</h3>
+  <div class="center-align waves-effect waves-light btn-large info-button">
+    Prize & Auction Info
+  </div>
+  
+</div>
 
-  <p>Prizes include:</p>
-  <ul>
+<div class="container prize-info">
+  <p class="center-align prizes-auction">50/50 and auction items available during dinner buffet.</p>
+  <p class="center-align prizes-auction">Sports memorabilia, jewelry, gift cards, golf items and more!</p>
+  <h4 class="center-align reg-info">Prizes include:</h4>
+  <ul class="center-align prizes-auction">
     <li>Winning team: 4 wedges</li>
     <li>Longest drive: TBD</li>
   </ul>
-  <p>50/50 and auction items available during dinner buffet.</p>
-  <p>Sports memorabilia, jewelry, gift cards, golf items and more!</p>
 </div>
 
-<div class="container new-signup">
+<div class="container signup-form">
   <%= form_for(setup_signup(@signup)) do |f| %>
     <% if @signup.errors.any? %>
       <div id="error_explanation">
@@ -29,59 +35,67 @@
       </div>
     <% end %>
 
-    <p>Information about you:</p>
+    <div class="new-signup signup-info">
+      <p class="description">Information about you:</p>
 
-    <div class="field">
-      <%= f.label :first_name, "First Name" %><br>
-      <%= f.text_field :first_name %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name, "Last Name" %><br>
-      <%= f.password_field :last_name %>
-    </div>
-    <div class="field">
-      <%= f.label :email, "Email" %><br>
-      <%= f.text_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :street_address, "Street Address" %><br>
-      <%= f.password_field :street_address %>
-    </div>
-    <div class="field">
-      <%= f.label :city, "City" %><br>
-      <%= f.text_field :city %>
-    </div>
-    <div class="field">
-      <%= f.label :state, "State" %><br>
-      <%= f.text_field :state %>
-    </div>
-    <div class="field">
-      <%= f.label :zip, "Zip Code" %><br>
-      <%= f.password_field :zip %>
-    </div>
-    <div class="field">
-      <%= f.label :contact_number, "Contact Number" %><br>
-      <%= f.text_field :contact_number %>
+      <div class="field">
+        <%= f.label :first_name, "First Name" %><br>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="field">
+        <%= f.label :last_name, "Last Name" %><br>
+        <%= f.password_field :last_name %>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Email" %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :street_address, "Street Address" %><br>
+        <%= f.password_field :street_address %>
+      </div>
+      <div class="field">
+        <%= f.label :city, "City" %><br>
+        <%= f.text_field :city %>
+      </div>
+      <div class="field">
+        <%= f.label :state, "State" %><br>
+        <%= f.text_field :state %>
+      </div>
+      <div class="field">
+        <%= f.label :zip, "Zip Code" %><br>
+        <%= f.password_field :zip %>
+      </div>
+      <div class="field">
+        <%= f.label :contact_number, "Contact Number" %><br>
+        <%= f.text_field :contact_number %>
+      </div>
+      <div class="field">
+        <%= f.label :additional_donation, "Additional Donation Amount" %><br>
+        <%= f.text_field :additional_donation %>
+      </div>
     </div>
     
-    <p>Players' Information:</p>
-    <%= f.fields_for :players do |ff| %>
-      <div class="player-info-collection">
-        <%= ff.label :player_first_name, "Player First Name" %><br>
-        <%= ff.text_field :player_first_name %>
-      </div>
-      <div>
-        <%= ff.label :player_last_name, "Player Last Name" %><br>
-        <%= ff.text_field :player_last_name %>
-      </div>
-    <% end %>
+    <div class="new-signup players-info">
+      <p class="description">Players' Information:</p>
+      <% player_counter = 1 %>
+      <%= f.fields_for :players do |ff| %>
+        <div class="player-info-collection">
+          <%= ff.label :player_first_name, "Player #{player_counter} First Name" %><br>
+          <%= ff.text_field :player_first_name %>
+        </div>
+        <div>
+          <%= ff.label :player_last_name, "Player #{player_counter} Last Name" %><br>
+          <%= ff.text_field :player_last_name %> 
+        </div>
+        <% player_counter += 1 %>
+      <% end %>
 
-    <div class="field">
-      <%= f.label :additional_donation, "Additional Donation Amount" %><br>
-      $<%= f.text_field :additional_donation %>
-    </div>
-    <div class="actions center-align waves-effect waves-light btn-large">
-      <%= f.submit %>
+
+      <div class="actions waves-effect waves-light btn-large players-signup-button">
+        <%= f.submit "Add players" %>
+      </div>
     </div>
   <% end %>
+
 </div>

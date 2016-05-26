@@ -38,17 +38,30 @@ body {
 
 .btn-large {
   background-color: Maroon;
-  font: Linen !important;
+  color: Linen;
   margin: 5px;
 }
 
 .btn-large:hover {
-  background-color: Maroon;
+  background-color: Linen;
+  color: Maroon;
+  border: 2px solid Maroon;
 }
 
 .buttons {
   float: left;
   margin-left: 43%;
+}
+
+.info-button {
+  background-color: Linen;
+  color: Maroon;
+}
+
+.info-button:hover {
+  background-color: Maroon;
+  color: Linen;
+  border: 2px solid Linen;
 }
 
 .golf-picture {
@@ -69,7 +82,48 @@ body {
   margin-bottom: 2%;
 }
 
+.prize-info {
+  background-color: Maroon;
+  float: right;
+  margin-right: 5%;
+  margin-bottom: 2%;
+  display: none;
+}
+
+.prizes-auction {
+ color: Linen;
+ font-size: 25px; 
+}
+
+.signup-form {
+  clear: both;
+  margin-bottom: 10px;
+}
+
 .new-signup {
   background-color: Linen;
+  padding: 10px;
+}
+
+.reg-info {
+  color: Linen;
+}
+
+.description {
+  color: Maroon;
+  font-size: 15px;
+}
+.signup-info {
+  width: 40%;
+  float: left;
+}
+
+.players-info {
+  width: 40%;
+  float: right;
+}
+
+.players-signup-button {
   clear: both;
+  text-align: center;
 }

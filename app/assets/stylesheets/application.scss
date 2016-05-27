@@ -75,6 +75,18 @@ body {
   color: Linen;
 }
 
+.error-explanation {
+  background-color: Linen;
+  border: 2px solid Maroon;
+  color: Maroon;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  font-size: 20px;
+}
+
 .player-reg-info {
   background-color: Maroon;
   float: right;
@@ -126,4 +138,31 @@ body {
 .players-signup-button {
   clear: both;
   text-align: center;
+}
+
+.signup-summary {
+  background-color: Maroon;
+  color: Linen;
+}
+
+.signup-confirmation {
+  background-color: Linen;
+  padding: 5px 0px 5px 15px;
+  margin-bottom: 5px;
+}
+
+.signup-header {
+  color: Maroon;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.confirm-info {
+  font-size: 20px;
+  color: Maroon;
+}
+
+#total-donation {
+  color: Maroon;
+  font-size: 25px;
 }

@@ -6,16 +6,14 @@ Rails.application.routes.draw do
   # post '/sponsorships' => 'sponsorships#create'
 
   get '/players/new' => 'players#new', as: 'new_players'
+  # get '/players/update' => 'players#update', as: 'update_players'
   # post '/players' => 'players#create'
 
   get '/diners/new' => 'diners#new', as: 'new_diners'
   # post '/diners' => 'diners#create'
 
-  get '/signups/index' => 'signups#index'
-  post '/signups' => 'signups#create'
-  get '/signups/:id' => 'signups#show'
-  get '/signups/:id/edit' => 'signups#edit', as: 'edit_signup'
-
   get '/users/show' => 'users#show'
+
+  resources :signups, except: [:delete]
 
 end

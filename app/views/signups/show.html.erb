@@ -1,0 +1,38 @@
+<div class="signup-summary">
+  <h2 class="center-align">Thank you for your registration!</h2>
+  <h2 class="center-align">Please confirm the following information:</h2>
+</div>
+
+<div class="container signup-confirmation">
+  <h3 class="signup-header">Your information:</h3>
+  <ul>
+    <li class="confirm-info"><%= @signup.contact_name %></li>
+    <li class="confirm-info"><%= @signup.email %></li>
+    <li class="confirm-info"><%= @signup.contact_number %></li>
+    <li class="confirm-info"><%= @signup.full_address %></li>
+  </ul>
+</div>
+
+<div class="container signup-confirmation">
+  <% if @signup.players.count > 0 %>
+  <h3 class="signup-header">Players' names:</h3>
+    <ul>
+    <% player_count = 1 %>
+    <% @signup.players.each do |player| %>
+        <li class="confirm-info">Player <%= player_count %>: <%= player.player_name %></li>
+      <% player_count += 1 %>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="container signup-confirmation">
+  <h3 class="signup-header">Total donation amount:</h3>
+  <ul>
+  <% if @signup.players.count > 0 %>
+    <li class="confirm-info">Total for players: $<%= @signup.players.count * 150 %></li>
+  <% end %>
+    <li class="confirm-info">Additional donation: $<%= @signup.additional_donation %></li>
+    <li id="total-donation">TOTAL DONATION $<%= @signup.total %></li>
+  </ul>
+</div>

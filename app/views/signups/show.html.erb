@@ -36,3 +36,9 @@
     <li id="total-donation">TOTAL DONATION $<%= @signup.total %></li>
   </ul>
 </div>
+
+<div class="center-align buttons">
+  <%= link_to "edit", new_players_path(@signup), class: "waves-effect waves-light btn-large" %><br>
+  <%= link_to "confirm", users_show_path, class: "waves-effect waves-light btn-large" %>
+</div>
+

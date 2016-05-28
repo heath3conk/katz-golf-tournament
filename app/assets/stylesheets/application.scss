@@ -26,6 +26,7 @@ body {
   color: Maroon;
   clear: both;
 }
+
 .headline {
   font-size: 40px;
   margin: 3px;
@@ -112,7 +113,7 @@ body {
   margin-bottom: 10px;
 }
 
-.new-signup {
+.user-action {
   background-color: Linen;
   padding: 10px;
 }
@@ -165,4 +166,12 @@ body {
 #total-donation {
   color: Maroon;
   font-size: 25px;
+}
+
+.heavy {
+  font-weight: bold;
+}
+
+#charity-name {
+  font-style: italic;
 }

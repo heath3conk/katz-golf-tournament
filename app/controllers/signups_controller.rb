@@ -1,6 +1,7 @@
 class SignupsController < ApplicationController
 
   before_action :set_signup, only: [:update, :show]
+  # before_action :authenticate!, only: [:index, :destroy]
 
   def create
     @signup = Signup.new(signup_params)
@@ -21,6 +22,14 @@ class SignupsController < ApplicationController
 
   def show
     @signup = Signup.find(params[:id])
+  end
+
+  def index
+    # if !logged_in?
+    #   redirect_to new_session_path
+    # else 
+      @signups = Signup.all
+    # end
   end
 
   private

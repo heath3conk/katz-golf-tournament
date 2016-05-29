@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   resources :signups, except: [:delete]
 
+  get '/session/new' => 'session#new', as: 'new_session'
+  post '/session' => 'session#create'
+  delete '/logout' => 'session#destroy'
+
 end

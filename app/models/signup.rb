@@ -30,6 +30,13 @@ class Signup < ActiveRecord::Base
     self.total = self.additional_donation + (self.players.count * 150)
   end
 
+  def change_paid_status
+    if self.paid_status == "unpaid"
+      self.paid_status = "paid"
+    else
+      self.paid_status = "unpaid"
+    end
+  end
 
   private
 

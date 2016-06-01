@@ -1,47 +1,92 @@
-<div class="container user-action">
-
+<div class="container signup-list user-action">
+  <h2 class="signup-header">Players</h2>
   <table class="responsive-table highlight">
     <thead>
       <tr>
         <th data-field="contact">Contact Name</th>
         <th data-field="email">Email</th>
-        <th data-field="phone">Phone Number</th>
-        <th data-field="total">Total Donation Amount</th>
-        <th data-field="paid">Paid Status</th>
-        <th data-field="details">Details</th>
+        <th class="right-align" data-field="phone">Phone Number</th>
+        <th class="right-align" data-field="total">Total Donation</th>
+        <th class="center-align" data-field="paid">Paid Status</th>
       </tr>
     </thead>
 
-  <% @signups.each do |signup| %>
-    
-      <% if signup.players.count > 0 %>
+      <% @all_signups[0].each do |signup| %>
         <tr>
           <td><%= signup.contact_name %></td>
           <td><%= signup.email %></td>
-          <td><%= signup.contact_number %></td>
-          <td><%= signup.total %></td>
-          <td><%= signup.paid_status %><%= button_to "Change", method: :update, confirm: "Confirm changing paid status" %></td>
+          <td class="right-align"><%= signup.contact_number %></td>
+          <td class="right-align">$<%= signup.total %></td>
+          <td class="center-align"><%= signup.paid_status %><br>
+            <%= link_to "change", signup_path(signup), class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
+          <td class="center-align">
+            <%= link_to "details", signups_path, class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
         </tr>
-    
-      <% elsif signup.sponsorships.count > 0 %>
-        <tr>
-          <td><%= signup.company_name %></td>
-          <td><%= signup.email %></td>
-          <td><%= signup.contact_number %></td>
-          <td><%= signup.total %></td>
-          <td><%= signup.paid_status %><%= button_to "Change", method: :update, confirm: "Confirm changing paid status" %></td>
-        </tr>
-    
-      <% else %>
-        <tr>
-          <td><%= signup.contact_name %></td>
-          <td><%= signup.email %></td>
-          <td><%= signup.contact_number %></td>
-          <td><%= signup.total %></td>
-          <td><%= signup.paid_status %><%= button_to "Change", method: :update, confirm: "Confirm changing paid status" %></td>
-        </tr>
-    
+        <div class="signup-details">
+
+        </div>   
       <% end %>
-  </table>
-<% end %>
+    </table>
+</div>
+
+<div class="container user-action">
+  <h2 class="signup-header">Sponsorships</h2>
+  <table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th data-field="contact">Contact Name</th>
+        <th data-field="email">Email</th>
+        <th class="right-align" data-field="phone">Phone Number</th>
+        <th class="right-align" data-field="total">Total Donation</th>
+        <th class="center-align" data-field="paid">Paid Status</th>
+      </tr>
+    </thead>
+
+      <% @all_signups[1].each do |signup| %>
+        <tr>
+          <td><%= signup.contact_name %></td>
+          <td><%= signup.email %></td>
+          <td class="right-align"><%= signup.contact_number %></td>
+          <td class="right-align">$<%= signup.total %></td>
+          <td class="center-align"><%= signup.paid_status %><br>
+            <%= link_to "change", signup_path(signup), class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
+          <td class="center-align">
+            <%= link_to "details", signups_path, class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
+        </tr>    
+      <% end %>
+    </table>
+</div>
+
+<div class="container user-action">
+  <h2 class="signup-header">Diners</h2>
+  <table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th data-field="contact">Contact Name</th>
+        <th data-field="email">Email</th>
+        <th class="right-align" data-field="phone">Phone Number</th>
+        <th class="right-align" data-field="total">Total Donation</th>
+        <th class="center-align" data-field="paid">Paid Status</th>
+      </tr>
+    </thead>
+
+      <% @all_signups[2].each do |signup| %>
+        <tr>
+          <td><%= signup.contact_name %></td>
+          <td><%= signup.email %></td>
+          <td class="right-align"><%= signup.contact_number %></td>
+          <td class="right-align">$<%= signup.total %></td>
+          <td class="center-align"><%= signup.paid_status %><br>
+            <%= link_to "change", signup_path(signup), class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
+          <td class="center-align">
+            <%= link_to "details", signups_path, class: "waves-effect waves-light btn-large paid-button" %>
+          </td>
+        </tr>    
+      <% end %>
+    </table>
 </div>

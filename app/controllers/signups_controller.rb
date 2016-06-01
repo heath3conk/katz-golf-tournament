@@ -4,6 +4,7 @@ class SignupsController < ApplicationController
   # before_action :authenticate!, only: [:index, :destroy]
 
   def create
+    p "you're supposed to be in update!!"
     @signup = Signup.new(signup_params)
 
     if @signup.save
@@ -16,10 +17,6 @@ class SignupsController < ApplicationController
     end
   end
 
-  def update
-    @signup
-  end
-
   def show
     @signup = Signup.find(params[:id])
   end
@@ -28,15 +25,36 @@ class SignupsController < ApplicationController
     # if !logged_in?
     #   redirect_to new_session_path
     # else 
-      @signups = Signup.all
+      players_signups = []
+      sponsorships_signups = []
+      diners_signups = []
+      Signup.all.each do |signup|
+        if signup.players.count > 0 
+          players_signups << signup
+        elsif signup.sponsorships.count > 0
+          sponsorships_signups << signup
+        else
+          diners_signups << signup
+        end
+      end
     # end
+    @all_signups = [players_signups, sponsorships_signups, diners_signups]
+  end
+
+  def update
+    @signup = Signup.find params[:id] 
+    if request.xhr?
+      @signup.change_paid_status
+      return "#{@signup.paid_status}"
+    else
+    end
   end
 
   private
 
     def signup_params
       p params 
-      params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, players_attributes: [:player_first_name, :player_last_name], diners_attributes: [:diner_first_name, :diner_last_name], sponsorships_attributes: [:sponsorship_type])
+      params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, :paid_status, players_attributes: [:player_first_name, :player_last_name], diners_attributes: [:diner_first_name, :diner_last_name], sponsorships_attributes: [:sponsorship_type])
     end
 
     def set_signup

@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 20160522202919) do
     t.string   "contact_number"
     t.integer  "additional_donation"
     t.integer  "total"
-    t.integer  "paid_status"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "paid_status",         default: "unpaid"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "sponsorships", force: :cascade do |t|

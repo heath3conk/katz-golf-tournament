@@ -146,6 +146,10 @@ body {
   text-align: center;
 }
 
+.paid-button {
+  width: 60%;
+}
+
 .signup-summary {
   background-color: Maroon;
   color: Linen;
@@ -179,4 +183,8 @@ body {
 
 #charity-name {
   font-style: italic;
+}
+
+.signup-list {
+  clear: both;
 }

@@ -14,8 +14,8 @@ additional_donation_possibilities = [0,25, 50, 100]
     )
 end
 
+signup_counter = 1
 3.times do
-  signup_counter = 1
   4.times do
     Player.create!(
       signup_id: signup_counter,

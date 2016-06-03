@@ -24,6 +24,10 @@
         <%= f.text_field :last_name %>
       </div>
       <div class="field">
+        <%= f.label :company_name, "Company Name" %><br>
+        <%= f.text_field :company_name %>
+      </div>
+      <div class="field">
         <%= f.label :email, "Email" %><br>
         <%= f.text_field :email %>
       </div>
@@ -54,23 +58,43 @@
     </div>
     
     <div class="user-action players-info">
-      <p class="description">Diners' Information:</p>
-      <% diner_counter = 1 %>
-      <%= f.fields_for :diners do |ff| %>
+      <p class="description">Sponsorship Options:</p>
+        <%= f.fields_for :sponsorship do |ff| %>
         <div class="player-info-collection">
-          <%= ff.label :diner_first_name, "Diner #{diner_counter} First Name" %><br>
-          <%= ff.text_field :diner_first_name %>
+          <div class="input-field">
+            <%= ff.check_box :buffet %>
+            <%= ff.label :buffet, "Buffet Sponsorship" %><br>
+          </div>
+          <div class="input-field">  
+            <%= ff.check_box :beverage_cart %>
+            <%= ff.label :beverage_cart, "Beverage Cart Sponsorship" %><br>
+          </div>
+          <div class="input-field">
+            <%= ff.check_box :at_the_turn %>
+            <%= ff.label :at_the_turn, "At the Turn Sponsorship" %><br>
+          </div>
+          <div class="input-field"> 
+            <%= ff.check_box :closest_to_pin %>
+            <%= ff.label :closest_to_pin, "Closest to the Pin Sponsorship" %><br>
+          </div>
+          <div class="input-field">  
+            <%= ff.check_box :longest_drive %>
+            <%= ff.label :longest_drive, "Longest Drive Sponsorship" %><br>
+          </div>
+
+          <% options_for_select([["none", 0], ["$250 Tee box sign", 1], ["$400 Tee box sign + 1", 2], ["$550 Tee box sign + 2", 3], ["$700 Tee box sign + 3", 4], ["$850 Tee box sign + 4", 5]]) %>
+          <div class="input-field">
+            <%= ff.text_field :tee_box %>
+            <%= ff.label :tee_box, "Tee box sign(s)" %>
+            <%= ff.select :tee_box, options_for_select %>
+          </div>
         </div>
-        <div>
-          <%= ff.label :diner_last_name, "Diner #{diner_counter} Last Name" %><br>
-          <%= ff.text_field :diner_last_name %> 
-        </div>
-        <% diner_counter += 1 %>
+        
       <% end %>
 
 
       <div class="actions waves-effect waves-light btn-large players-signup-button">
-        <%= f.submit "Add diners" %>
+        <%= f.submit "Add sponsorships" %>
       </div>
     </div>
   <% end %>

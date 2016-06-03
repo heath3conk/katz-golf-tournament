@@ -7,7 +7,7 @@ module FormHelper
     signup.diners ||= Diner.new
     2.times { signup.diners.build }
 
-    signup.sponsorships ||= Sponsorship.new
+    signup.sponsorship ||= Sponsorship.new
 
     signup
   end

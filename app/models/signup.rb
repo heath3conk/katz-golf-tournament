@@ -7,8 +7,8 @@ class Signup < ActiveRecord::Base
   validates :contact_number, format: { with: /\(?\d{3}(\)|\.|-)? ?\d{3}(\.|-)?\d{4}/i, on: :create }
   validates :contact_number, presence: true, uniqueness: true
 
-  has_many :sponsorships
-  accepts_nested_attributes_for :sponsorships
+  has_one :sponsorship
+  accepts_nested_attributes_for :sponsorship
   has_many :players
   accepts_nested_attributes_for :players
   has_many :diners

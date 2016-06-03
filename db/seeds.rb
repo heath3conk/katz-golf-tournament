@@ -34,13 +34,18 @@ end
     )
 end
 
-sponsorship_options = ["buffet", "bev_cart", "snack", "closest_to_pin", "longest_drive", "tee_box_sign", "tee_box_1", "tee_box_2", "tee_box_3", "tee_box_4"]
-
+sponsorship_counter = 5
 10.times do
   Sponsorship.create!(
-    signup_id: rand(5..8),
-    sponsorship_type: sponsorship_options.sample
+    signup_id: sponsorship_counter,
+    buffet: rand(0..1),
+    beverage_cart: rand(0..1),
+    at_the_turn: rand(0..1),
+    closest_to_pin: rand(0..1),
+    longest_drive: rand(0..1),
+    tee_box: rand(0..5)
     )
+  sponsorship_counter += 1
 end
 
 User.create!(

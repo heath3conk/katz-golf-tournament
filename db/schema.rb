@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522202919) do
+ActiveRecord::Schema.define(version: 20160603154507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +45,14 @@ ActiveRecord::Schema.define(version: 20160522202919) do
 
   create_table "sponsorships", force: :cascade do |t|
     t.integer  "signup_id"
-    t.string   "sponsorship_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "buffet",         default: 0
+    t.integer  "beverage_cart",  default: 0
+    t.integer  "at_the_turn",    default: 0
+    t.integer  "closest_to_pin", default: 0
+    t.integer  "longest_drive",  default: 0
+    t.integer  "tee_box",        default: 0
   end
 
   create_table "users", force: :cascade do |t|

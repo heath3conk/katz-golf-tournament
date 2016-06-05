@@ -15,4 +15,17 @@ class Sponsorship < ActiveRecord::Base
     sponsorship_total
   end
 
+  def selected_sponsorships
+    selection = []
+    selection << "Buffet Sponsorship" * self.buffet
+    selection << "Beverage Cart Sponsorship" * self.beverage_cart
+    selection << "At the Turn Sponsorship" * self.at_the_turn
+    selection << "Closest to Pin Sponsorship" * self.closest_to_pin
+    selection << "Longest Drive Sponsorship" * self.longest_drive
+    if tee_box > 0
+      selection << "#{self.tee_box} Tee Box Sign(s)"
+    end
+    selection
+  end
+
 end

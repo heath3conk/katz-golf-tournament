@@ -18,6 +18,8 @@ class Signup < ActiveRecord::Base
   before_validation :store_full_address, on: :create
   before_validation :store_contact_name, on: :create
 
+  # attr_reader :contact_name, :full_address
+
   def store_contact_name
     self.contact_name = "#{self.first_name} #{self.last_name}"
   end
@@ -27,7 +29,21 @@ class Signup < ActiveRecord::Base
   end
 
   def total
-    self.total = self.additional_donation + (self.players.count * 150)
+    if self.additional_donation
+      self.total = self.additional_donation + self.signup_type_donation
+    else
+      self.total = self.signup_type_donation
+    end
+  end
+
+  def signup_type_donation
+    if self.players.count > 0
+      self.players.count * 150
+    elsif self.diners.count > 0
+      self.diners.count * 40
+    else
+      self.sponsorship.sponsor_total
+    end
   end
 
   def change_paid_status

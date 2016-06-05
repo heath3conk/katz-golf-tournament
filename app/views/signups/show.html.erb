@@ -23,6 +23,24 @@
       <% player_count += 1 %>
     <% end %>
     </ul>
+  <% elsif @signup.diners.count > 0 %>
+  <h3 class="signup-header">Diners' names:</h3>
+    <ul>
+    <% diner_count = 1 %>
+    <% @signup.diners.each do |player| %>
+        <li class="confirm-info">Diner <%= diner_count %>: <%= diner.diner_name %></li>
+      <% diner_count += 1 %>
+    <% end %>
+    </ul>
+  <% elsif @signup.sponsorship %>
+  <h3 class="signup-header">Sponsorships selected:</h3>
+    <ul>
+    <% @signup.sponsorship.selected_sponsorships.each do |sponsorship| %>
+      <% if sponsorship.length > 0 %>
+        <li class="confirm-info"><%= sponsorship %></li>
+      <% end %>
+    <% end %>
+    </ul>
   <% end %>
 </div>
 
@@ -38,7 +56,7 @@
 </div>
 
 <div class="center-align buttons">
-  <%= link_to "edit", new_players_path(@signup), class: "waves-effect waves-light btn-large" %><br>
+  <%= link_to "edit signup information", edit_signup_path(@signup), class: "waves-effect waves-light btn-large" %><br>
   <%= link_to "confirm", users_show_path, class: "waves-effect waves-light btn-large" %>
 </div>
 

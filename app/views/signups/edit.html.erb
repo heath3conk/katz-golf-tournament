@@ -1,0 +1,99 @@
+<%= javascript_include_tag 'sponsorships' %>
+<div class="container player-reg-info">
+  <h1 class="center-align reg-info">Please update your information:</h1>
+</div>
+
+<div class="container signup-form">
+  <%= form_for(@signup) do |f| %>
+    <div class="user-action signup-info">
+      <p class="description">Information about you:</p>
+      <div class="field">
+        <%= f.label :contact_name, "Your Name", class: "form-label" %><br>
+        <%= f.text_field :contact_name, class:"form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :company_name, "Company Name", class: "form-label" %><br>
+        <%= f.text_field :company_name %>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Email", class: "form-label" %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label :full_address, "Your Address", class: "form-label" %><br>
+        <%= f.text_field :full_address %>
+      </div>
+      <div class="field">
+        <%= f.label :contact_number, "Contact Number", class: "form-label" %><br>
+        <%= f.text_field :contact_number %>
+      </div>
+      <div class="field">
+        <%= f.label :additional_donation, "Additional Donation Amount", class: "form-label" %><br>
+        <%= f.text_field :additional_donation %>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-action players-info">
+    <% if @signup.players.count > 0 %>
+      <p class="description">Players' Information:</p>
+        <% player_counter = 1 %>
+        <%= f.fields_for :players do |ff| %>
+          <div class="player-info-collection">
+            <%= ff.label :player_name, "Player #{player_counter} Name", class: "form-label" %><br>
+            <%= ff.text_field :player_name %>
+          </div>
+          <% player_counter += 1 %>
+        <% end %>
+
+    <% elsif @signup.diners.count > 0 %>
+      <p class="description">Diners' Information:</p>
+      <% diner_counter = 1 %>
+      <%= f.fields_for :diners do |ff| %>
+        <div class="player-info-collection">
+          <%= ff.label :diner_name, "Diner #{diner_counter} Name", class: "form-label" %><br>
+          <%= ff.text_field :diner_name %>
+        </div>
+        <% diner_counter += 1 %>
+      <% end %>
+
+    <% else %>
+      <p class="description">Sponsorship Opportunities:</p>
+      <%= f.fields_for :sponsorship do |ff| %>
+        <div class="player-info-collection">
+          <div class="input-field">
+            <%= ff.check_box :buffet %>
+            <%= ff.label :buffet, "$1,200 Buffet Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="input-field">  
+            <%= ff.check_box :beverage_cart %>
+            <%= ff.label :beverage_cart, "$1,000 Beverage Cart Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="input-field">
+            <%= ff.check_box :at_the_turn %>
+            <%= ff.label :at_the_turn, "$500 At the Turn Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="input-field"> 
+            <%= ff.check_box :closest_to_pin %>
+            <%= ff.label :closest_to_pin, "$250 Closest to the Pin Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="input-field">  
+            <%= ff.check_box :longest_drive %>
+            <%= ff.label :longest_drive, "$250 Longest Drive Sponsorship", class: "form-label" %><br>
+          </div>
+
+          <div class="dropdown-button">
+            <%= ff.label :tee_box, "Tee box sign(s)", class: "dropdown-update-highlighting" %>
+            <%= ff.select :tee_box, options_for_select([['none', 0], ['$250 Tee box sign', 1], ['$400 Tee box sign + 1', 2], ['$550 Tee box sign + 2', 3], ['$700 Tee box sign + 3', 4], ['$850 Tee box sign + 4', 5]]) %>
+          </div>
+      
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="actions waves-effect waves-light btn-large players-signup-button">
+      <%= f.submit "Confirm Signup Information" %>
+    </div>
+
+    </div>
+  <% end %>

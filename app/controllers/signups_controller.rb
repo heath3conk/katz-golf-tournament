@@ -1,10 +1,10 @@
 class SignupsController < ApplicationController
 
-  before_action :set_signup, only: [:update, :show]
+  before_action :set_signup, only: [:update, :show, :edit]
   # before_action :authenticate!, only: [:index, :destroy]
 
   def create
-    p "you're supposed to be in update!!"
+    p params
     @signup = Signup.new(signup_params)
 
     if @signup.save
@@ -18,7 +18,7 @@ class SignupsController < ApplicationController
   end
 
   def show
-    @signup = Signup.find(params[:id])
+    
   end
 
   def index
@@ -41,12 +41,29 @@ class SignupsController < ApplicationController
     @all_signups = [players_signups, sponsorship_signups, diners_signups]
   end
 
+  def edit
+
+  end
+
   def update
+    p "here I am in update"
     @signup = Signup.find params[:id] 
+    @signup.update_attributes(signup_params)
     if request.xhr?
-      @signup.change_paid_status
+      p "this is ajax, dumbass"
+      @signup.save!
+      # @signup.change_paid_status
       return "#{@signup.paid_status}"
     else
+      p params
+      # if @signup.save
+      redirect_to signup_path(@signup)
+      # else
+      #   case params[:commit]
+      #   when "Add players"
+      #     redirect_to new_players_path(@signup), flash: { errors: @signup.errors.full_messages }
+      # end
+    # end
     end
   end
 

@@ -3,6 +3,8 @@ $(document).ready(function() {
     $(".prize-info").toggle();
   })
 
+  $('select').material_select();
+
   $(".paid-button").on("click", function(event){
     event.preventDefault();
     var signup = $(this);

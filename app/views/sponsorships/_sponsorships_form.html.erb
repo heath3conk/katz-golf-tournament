@@ -16,86 +16,84 @@
       <p class="description">Information about you:</p>
 
       <div class="field">
-        <%= f.label :first_name, "First Name" %><br>
+        <%= f.label :first_name, "First Name", class: "form-label" %><br>
         <%= f.text_field :first_name %>
       </div>
       <div class="field">
-        <%= f.label :last_name, "Last Name" %><br>
+        <%= f.label :last_name, "Last Name", class: "form-label" %><br>
         <%= f.text_field :last_name %>
       </div>
       <div class="field">
-        <%= f.label :company_name, "Company Name" %><br>
+        <%= f.label :company_name, "Company Name", class: "form-label" %><br>
         <%= f.text_field :company_name %>
       </div>
       <div class="field">
-        <%= f.label :email, "Email" %><br>
+        <%= f.label :email, "Email", class: "form-label" %><br>
         <%= f.text_field :email %>
       </div>
       <div class="field">
-        <%= f.label :street_address, "Street Address" %><br>
+        <%= f.label :street_address, "Street Address", class: "form-label" %><br>
         <%= f.text_field :street_address %>
       </div>
       <div class="field">
-        <%= f.label :city, "City" %><br>
+        <%= f.label :city, "City", class: "form-label" %><br>
         <%= f.text_field :city %>
       </div>
       <div class="field">
-        <%= f.label :state, "State" %><br>
+        <%= f.label :state, "State", class: "form-label" %><br>
         <%= f.text_field :state %>
       </div>
       <div class="field">
-        <%= f.label :zip, "Zip Code" %><br>
+        <%= f.label :zip, "Zip Code", class: "form-label" %><br>
         <%= f.text_field :zip %>
       </div>
       <div class="field">
-        <%= f.label :contact_number, "Contact Number" %><br>
+        <%= f.label :contact_number, "Contact Number", class: "form-label" %><br>
         <%= f.text_field :contact_number %>
       </div>
       <div class="field">
-        <%= f.label :additional_donation, "Additional Donation Amount" %><br>
+        <%= f.label :additional_donation, "Additional Donation Amount", class: "form-label" %><br>
         <%= f.text_field :additional_donation %>
       </div>
     </div>
     
     <div class="user-action players-info">
-      <p class="description">Sponsorship Options:</p>
+      <p class="description">Sponsorship Opportunities:</p>
         <%= f.fields_for :sponsorship do |ff| %>
-        <div class="player-info-collection">
-          <div class="input-field">
-            <%= ff.check_box :buffet %>
-            <%= ff.label :buffet, "Buffet Sponsorship" %><br>
-          </div>
-          <div class="input-field">  
-            <%= ff.check_box :beverage_cart %>
-            <%= ff.label :beverage_cart, "Beverage Cart Sponsorship" %><br>
-          </div>
-          <div class="input-field">
-            <%= ff.check_box :at_the_turn %>
-            <%= ff.label :at_the_turn, "At the Turn Sponsorship" %><br>
-          </div>
-          <div class="input-field"> 
-            <%= ff.check_box :closest_to_pin %>
-            <%= ff.label :closest_to_pin, "Closest to the Pin Sponsorship" %><br>
-          </div>
-          <div class="input-field">  
-            <%= ff.check_box :longest_drive %>
-            <%= ff.label :longest_drive, "Longest Drive Sponsorship" %><br>
-          </div>
+          <div class="player-info-collection">
+            <div class="input-field">
+              <%= ff.check_box :buffet %>
+              <%= ff.label :buffet, "$1,200 Buffet Sponsorship", class: "form-label" %><br>
+            </div>
+            <div class="input-field">  
+              <%= ff.check_box :beverage_cart %>
+              <%= ff.label :beverage_cart, "$1,000 Beverage Cart Sponsorship", class: "form-label" %><br>
+            </div>
+            <div class="input-field">
+              <%= ff.check_box :at_the_turn %>
+              <%= ff.label :at_the_turn, "$500 At the Turn Sponsorship", class: "form-label" %><br>
+            </div>
+            <div class="input-field"> 
+              <%= ff.check_box :closest_to_pin %>
+              <%= ff.label :closest_to_pin, "$250 Closest to the Pin Sponsorship", class: "form-label" %><br>
+            </div>
+            <div class="input-field">  
+              <%= ff.check_box :longest_drive %>
+              <%= ff.label :longest_drive, "$250 Longest Drive Sponsorship", class: "form-label" %><br>
+            </div>
 
-          <% options_for_select([["none", 0], ["$250 Tee box sign", 1], ["$400 Tee box sign + 1", 2], ["$550 Tee box sign + 2", 3], ["$700 Tee box sign + 3", 4], ["$850 Tee box sign + 4", 5]]) %>
-          <div class="input-field">
-            <%= ff.text_field :tee_box %>
-            <%= ff.label :tee_box, "Tee box sign(s)" %>
-            <%= ff.select :tee_box, options_for_select %>
-          </div>
-        </div>
+            <div class="dropdown-button">
+              <%= ff.label :tee_box, "Tee box sign(s)", class: "form-label" %>
+              <%= ff.select :tee_box, options_for_select([['none', 0], ['$250 Tee box sign', 1], ['$400 Tee box sign + 1', 2], ['$550 Tee box sign + 2', 3], ['$700 Tee box sign + 3', 4], ['$850 Tee box sign + 4', 5]]) %>
+            </div>
         
-      <% end %>
+          <% end %>
+        </div>
 
+    <div class="actions waves-effect waves-light btn-large players-signup-button">
+      <%= f.submit "Add sponsorships" %>
+    </div>
 
-      <div class="actions waves-effect waves-light btn-large players-signup-button">
-        <%= f.submit "Add sponsorships" %>
-      </div>
     </div>
   <% end %>
 

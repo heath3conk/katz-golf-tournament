@@ -129,7 +129,8 @@ body {
 
 .description {
   color: Maroon;
-  font-size: 15px;
+  font-size: 20px;
+  text-decoration: underline;
 }
 .signup-info {
   width: 40%;
@@ -187,4 +188,31 @@ body {
 
 .signup-list {
   clear: both;
+}
+
+.form-label {
+  color: Maroon !important;
+  font-size: 15px;
+}
+
+.dropdown-button {
+  margin-top: 20px;
+}
+
+.dropdown-content li > span {
+  color: Maroon;
+}
+
+.select-dropdown {
+  color: Maroon;
+}
+
+[type="checkbox"]:checked + label:before {
+  border-right: 2px solid Maroon;
+  border-bottom: 2px solid Maroon;
+}
+
+input[type="text"]:focus {
+  border-bottom: 1px solid Maroon !important;
+  box-shadow: 0 1px 0 0 Maroon !important;
 }

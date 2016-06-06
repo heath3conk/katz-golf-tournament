@@ -6,10 +6,10 @@
 <div class="container signup-confirmation">
   <h3 class="signup-header">Your information:</h3>
   <ul>
-    <li class="confirm-info"><%= @signup.contact_name %></li>
+    <li class="confirm-info"><%= "#{@signup.first_name} #{@signup.last_name}" %></li>
     <li class="confirm-info"><%= @signup.email %></li>
     <li class="confirm-info"><%= @signup.contact_number %></li>
-    <li class="confirm-info"><%= @signup.full_address %></li>
+    <li class="confirm-info"><%= "#{@signup.street_address}, #{@signup.city}, #{@signup.state}  #{@signup.zip}" %></li>
   </ul>
 </div>
 
@@ -19,7 +19,7 @@
     <ul>
     <% player_count = 1 %>
     <% @signup.players.each do |player| %>
-        <li class="confirm-info">Player <%= player_count %>: <%= player.player_name %></li>
+        <li class="confirm-info">Player <%= player_count %>: <%= "#{player.player_first_name} #{player.player_last_name}" %></li>
       <% player_count += 1 %>
     <% end %>
     </ul>
@@ -27,8 +27,8 @@
   <h3 class="signup-header">Diners' names:</h3>
     <ul>
     <% diner_count = 1 %>
-    <% @signup.diners.each do |player| %>
-        <li class="confirm-info">Diner <%= diner_count %>: <%= diner.diner_name %></li>
+    <% @signup.diners.each do |diner| %>
+        <li class="confirm-info">Diner <%= diner_count %>: <%= "#{diner.diner_first_name} #{diner.diner_last_name}" %></li>
       <% diner_count += 1 %>
     <% end %>
     </ul>

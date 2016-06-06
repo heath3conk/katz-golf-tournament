@@ -11,36 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603154507) do
+ActiveRecord::Schema.define(version: 20160606144214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "diners", force: :cascade do |t|
     t.integer  "signup_id"
-    t.string   "diner_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "diner_first_name"
+    t.string   "diner_last_name"
   end
 
   create_table "players", force: :cascade do |t|
     t.integer  "signup_id"
-    t.string   "player_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "player_first_name"
+    t.string   "player_last_name"
   end
 
   create_table "signups", force: :cascade do |t|
-    t.string   "contact_name"
     t.string   "company_name"
     t.string   "email"
-    t.string   "full_address"
     t.string   "contact_number"
     t.integer  "additional_donation"
     t.integer  "total"
     t.string   "paid_status",         default: "unpaid"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
   create_table "sponsorships", force: :cascade do |t|

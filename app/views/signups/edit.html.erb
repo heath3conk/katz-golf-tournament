@@ -8,8 +8,12 @@
     <div class="user-action signup-info">
       <p class="description">Information about you:</p>
       <div class="field">
-        <%= f.label :contact_name, "Your Name", class: "form-label" %><br>
-        <%= f.text_field :contact_name, class:"form-control" %>
+        <%= f.label :first_name, "Your First Name", class: "form-label" %><br>
+        <%= f.text_field :first_name, class:"form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :last_name, "Your Last Name", class: "form-label" %><br>
+        <%= f.text_field :last_name, class:"form-control" %>
       </div>
       <div class="field">
         <%= f.label :company_name, "Company Name", class: "form-label" %><br>
@@ -20,8 +24,20 @@
         <%= f.text_field :email %>
       </div>
       <div class="field">
-        <%= f.label :full_address, "Your Address", class: "form-label" %><br>
-        <%= f.text_field :full_address %>
+        <%= f.label :street_address, "Your Street Address", class: "form-label" %><br>
+        <%= f.text_field :street_address %>
+      </div>
+      <div class="field">
+        <%= f.label :city, "Your City", class: "form-label" %><br>
+        <%= f.text_field :city %>
+      </div>
+      <div class="field">
+        <%= f.label :state, "Your State", class: "form-label" %><br>
+        <%= f.text_field :state %>
+      </div>
+      <div class="field">
+        <%= f.label :zip, "Your Zip", class: "form-label" %><br>
+        <%= f.text_field :zip %>
       </div>
       <div class="field">
         <%= f.label :contact_number, "Contact Number", class: "form-label" %><br>
@@ -40,8 +56,12 @@
         <% player_counter = 1 %>
         <%= f.fields_for :players do |ff| %>
           <div class="player-info-collection">
-            <%= ff.label :player_name, "Player #{player_counter} Name", class: "form-label" %><br>
-            <%= ff.text_field :player_name %>
+            <%= ff.label :player_first_name, "Player #{player_counter} First Name", class: "form-label" %><br>
+            <%= ff.text_field :player_first_name %>
+          </div>
+          <div class="player-info-collection">
+            <%= ff.label :player_last_name, "Player #{player_counter} Last Name", class: "form-label" %><br>
+            <%= ff.text_field :player_last_name %>
           </div>
           <% player_counter += 1 %>
         <% end %>
@@ -51,8 +71,12 @@
       <% diner_counter = 1 %>
       <%= f.fields_for :diners do |ff| %>
         <div class="player-info-collection">
-          <%= ff.label :diner_name, "Diner #{diner_counter} Name", class: "form-label" %><br>
-          <%= ff.text_field :diner_name %>
+          <%= ff.label :diner_first_name, "Diner #{diner_counter} First Name", class: "form-label" %><br>
+          <%= ff.text_field :diner_first_name %>
+        </div>
+        <div class="player-info-collection">
+          <%= ff.label :diner_last_name, "Diner #{diner_counter} Last Name", class: "form-label" %><br>
+          <%= ff.text_field :diner_last_name %>
         </div>
         <% diner_counter += 1 %>
       <% end %>
@@ -88,9 +112,9 @@
           </div>
       
         <% end %>
-      <% end %>
     </div>
 
+      <% end %>
     <div class="actions waves-effect waves-light btn-large players-signup-button">
       <%= f.submit "Confirm Signup Information" %>
     </div>

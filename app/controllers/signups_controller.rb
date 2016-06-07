@@ -4,7 +4,6 @@ class SignupsController < ApplicationController
   # before_action :authenticate!, only: [:index, :destroy]
 
   def create
-    p params
     @signup = Signup.new(signup_params)
 
     if @signup.save
@@ -25,20 +24,8 @@ class SignupsController < ApplicationController
     # if !logged_in?
     #   redirect_to new_session_path
     # else 
-      players_signups = []
-      sponsorship_signups = []
-      diners_signups = []
-      Signup.all.each do |signup|
-        if signup.players.count > 0 
-          players_signups << signup
-        elsif signup.sponsorship.count > 0
-          sponsorship_signups << signup
-        else
-          diners_signups << signup
-        end
-      end
+      @signups = Signup.all.sort_by{ |signup| signup.total }
     # end
-    @all_signups = [players_signups, sponsorship_signups, diners_signups]
   end
 
   def edit
@@ -48,22 +35,18 @@ class SignupsController < ApplicationController
   def update
     p "here I am in update"
     @signup = Signup.find params[:id] 
-    @signup.update_attributes(signup_params)
-    if request.xhr?
-      p "this is ajax, dumbass"
-      @signup.save!
-      # @signup.change_paid_status
-      return "#{@signup.paid_status}"
+    
+    if params[:changePaidStatus]
+      @signup.change_paid_status
+      if request.xhr?
+        p "xhr"
+        render json: { paidStatus: @signup.paid_status }
+      else 
+        p "not xhr"
+        redirect_to @signup
+      end  
     else
-      p params
-      # if @signup.save
-      redirect_to signup_path(@signup)
-      # else
-      #   case params[:commit]
-      #   when "Add players"
-      #     redirect_to new_players_path(@signup), flash: { errors: @signup.errors.full_messages }
-      # end
-    # end
+      @signup.update_attributes(signup_params) 
     end
   end
 

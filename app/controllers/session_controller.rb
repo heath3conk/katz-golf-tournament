@@ -3,9 +3,11 @@ class SessionController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
+      p "user okay"
       login(@user)
       redirect_to signups_path(@user)
     else
+      p "problem user"
       redirect_to new_session_path(@user), flash: { error: "Invalid credentials, please try again." }
     end
   end

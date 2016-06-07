@@ -18,20 +18,6 @@ class Signup < ActiveRecord::Base
   has_many :diners
   accepts_nested_attributes_for :diners
 
-  # attr_accessor :street_address, :city, :state, :zip, :first_name, :last_name
-  # before_validation :store_full_address, on: :create
-  # before_validation :store_contact_name, on: :create
-
-  # attr_reader :contact_name, :full_address
-
-  # def store_contact_name
-  #   self.contact_name = "#{self.first_name} #{self.last_name}"
-  # end
-
-  # def store_full_address
-  #   self.full_address = "#{self.street_address}, #{self.city}, #{self.state} #{self.zip}"
-  # end
-
   def total
     if self.additional_donation
       self.total = self.additional_donation + self.signup_type_donation
@@ -56,6 +42,15 @@ class Signup < ActiveRecord::Base
     else
       self.paid_status = "unpaid"
     end
+  end
+
+  def sort_by_total
+    self.sort do | a, b |
+      if a.total > b.total
+        a <=> b
+      end
+    end
+
   end
 
   private

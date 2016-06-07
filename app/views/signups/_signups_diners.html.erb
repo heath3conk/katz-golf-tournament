@@ -1,0 +1,12 @@
+<tr>
+  <td><%= "#{signup.first_name} #{signup.last_name}" %></td>
+  <td><%= signup.email %></td>
+  <td class="right-align"><%= signup.contact_number %></td>
+  <td class="right-align">$<%= signup.total %></td>
+  <td class="center-align"><%= signup.paid_status %><br>
+    <%= link_to "change", signup_path(signup), class: "waves-effect waves-light btn-large paid-button" %>
+  </td>
+  <td class="center-align">
+    <%= link_to "details", signups_path, class: "waves-effect waves-light btn-large paid-button" %>
+  </td>
+</tr>   

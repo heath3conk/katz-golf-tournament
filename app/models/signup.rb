@@ -42,6 +42,7 @@ class Signup < ActiveRecord::Base
     else
       self.paid_status = "unpaid"
     end
+    self.save
   end
 
   def sort_by_total

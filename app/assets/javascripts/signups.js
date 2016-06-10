@@ -5,14 +5,20 @@ $(document).ready(function() {
 
   $(".paid-button").on("click", function(event){
     event.preventDefault();
-    var signupUrl = $(this).parent().parent().attr("action");
+    var chosenSignup = $(this).closest("td").children("p");
+    var signupUrl = $(this).closest("form").attr("action");
     $.ajax({
       beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
       url: signupUrl,
       method: "patch",
       data: { changePaidStatus: true }
-    }).done(function(paid_status){
-      console.log(paid_status);
+    }).done(function(updated_status){
+      chosenSignup.html(updated_status.paidStatus);
     })
+  });
+
+  $(".details-button").on("click", function(event){
+    event.preventDefault();
+  
   })
 })

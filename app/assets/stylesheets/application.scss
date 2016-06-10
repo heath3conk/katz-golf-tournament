@@ -148,6 +148,8 @@ body {
 }
 
 .paid-button {
+  margin-top: -30px;
+  padding-right: 40px;
   width: 60%;
 }
 
@@ -222,4 +224,13 @@ input[type="text"]:focus {
   color: Linen;
   font-size: 15px;
   padding: 4px;
+}
+ 
+.signup-details {
+  
+}
+
+
+.details-row {
+  border-top: 2px solid Maroon;
 }

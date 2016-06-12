@@ -11,6 +11,8 @@ class Signup < ActiveRecord::Base
   validates :contact_number, format: { with: /\(?\d{3}(\)|\.|-)? ?\d{3}(\.|-)?\d{4}/i, on: :create }
   validates :contact_number, presence: true
 
+  after_validation :normalize_phone_number, on: [:create, :update]
+
   has_one :sponsorship
   accepts_nested_attributes_for :sponsorship
   has_many :players
@@ -56,6 +58,12 @@ class Signup < ActiveRecord::Base
 
   private
 
+  def normalize_phone_number
+    working_number = self.contact_number
+    working_number.gsub!(/\D/, "")
+    working_number.insert(0, "(").insert(4, ") ").insert(9, "-")
+    self.contact_number = working_number.slice(0..13)
+  end
   
 
 end

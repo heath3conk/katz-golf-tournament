@@ -150,7 +150,7 @@ body {
 .paid-button {
   margin-top: -30px;
   padding-right: 40px;
-  width: 60%;
+  width: 125px;
 }
 
 .signup-summary {
@@ -227,9 +227,8 @@ input[type="text"]:focus {
 }
  
 .signup-details {
-  
+  display: none !important;
 }
-
 
 .details-row {
   border-top: 2px solid Maroon;

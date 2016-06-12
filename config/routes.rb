@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/diners/new' => 'diners#new', as: 'new_diners'
 
+  get '/users/new' => 'users#new'
+  post '/users' => 'users#create'
   get '/users/show' => 'users#show'
 
   resources :signups, except: [:delete]

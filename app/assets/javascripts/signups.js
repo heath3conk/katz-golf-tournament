@@ -19,6 +19,6 @@ $(document).ready(function() {
 
   $(".details-button").on("click", function(event){
     event.preventDefault();
-  
+    $(this).closest("tr").next("tr").toggleClass("signup-details");
   })
 })

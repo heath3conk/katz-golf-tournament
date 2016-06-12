@@ -1,5 +1,5 @@
 <div class="container signup-form">
-  <%= form_for :session, url: session_path(@user) do |f| %>
+  <%= form_for :user, url: users_path(@user) do |f| %>
     <% if flash[:error] %>
       <div class="error-explanation">
         <p class="error"><%= flash[:error] %></p>
@@ -20,7 +20,7 @@
       <%= f.text_field :role %>
 
       <div class="actions waves-effect waves-light btn-large players-signup-button">
-        <%= f.submit "Login" %>
+        <%= f.submit "register as new user" %>
       </div>
     </div>
 

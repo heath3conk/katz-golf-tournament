@@ -1,0 +1,17 @@
+<div class="container signup-list user-action">
+  <h2 class="signup-header">All Sponsorships</h2>
+  <table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th data-field="contact">Selected Sponsorships</th>
+        <th data-field="contact">Company Name</th>
+        <th data-field="contact">Contact Name</th>
+        <th class="right-align" data-field="phone">Contact Phone Number</th>
+        <th class="center-align" data-field="paid">Paid Status</th>
+      </tr>
+    </thead>
+
+      <%= render partial: 'sponsorships', collection: @sponsors_signups %>
+        
+    </table>
+</div>

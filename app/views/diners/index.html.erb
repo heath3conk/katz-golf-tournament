@@ -1,0 +1,16 @@
+<div class="container signup-list user-action">
+  <h2 class="signup-header">All Diners</h2>
+  <table class="responsive-table highlight">
+    <thead>
+      <tr>
+        <th data-field="contact">Diners' Names</th>
+        <th data-field="contact">Contact Name</th>
+        <th class="right-align" data-field="phone">Contact Phone Number</th>
+        <th class="center-align" data-field="paid">Paid Status</th>
+      </tr>
+    </thead>
+
+      <%= render partial: 'diners', collection: @diners_signups %>
+        
+    </table>
+</div>

@@ -1,7 +1,7 @@
 class SignupsController < ApplicationController
 
   before_action :set_signup, only: [:update, :show, :edit]
-  # before_action :authenticate!, only: [:index, :destroy]
+  before_action :authenticate!, only: [:index, :destroy]
 
   def create
     @signup = Signup.new(signup_params)
@@ -33,16 +33,13 @@ class SignupsController < ApplicationController
   end
 
   def update
-    p "here I am in update"
     @signup = Signup.find params[:id] 
     
     if params[:changePaidStatus]
       @signup.change_paid_status
       if request.xhr?
-        p "xhr"
         render json: { paidStatus: @signup.paid_status }
       else 
-        p "not xhr"
         redirect_to @signup
       end  
     else

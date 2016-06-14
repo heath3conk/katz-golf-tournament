@@ -12,13 +12,23 @@
 </head>
 
 <nav class="row">
-  <%= image_tag "Christopher_Katzenstein.jpg", class:"col s2 m2 l2 katz-pic" %>
+  <% if !logged_in? %>
+    <%= image_tag "Christopher_Katzenstein.jpg", class:"col s2 m2 l2 katz-pic" %>
+  <% end %>
   <%= link_to "HOME", pages_path, class:"col s2 m2 l2 right-align nav-link" %>
-  <%= link_to "SPONSOR", new_sponsorships_path, class: "col s2 m2 l2 right-align nav-link" %>
-  <%= link_to "REGISTER PLAYERS", new_players_path, class: "col s2 m2 l2 right-align nav-link" %>
-  <%= link_to "DINNER ONLY", new_diners_path, class: "col s2 m2 l2 right-align nav-link" %>
-  <%= link_to "CONTACT INFO", users_show_path, class: "col s2 m2 l2 right-align nav-link" %>
-</nav>
+  <% if logged_in? %>
+    <%= link_to "ALL SIGNUPS", signups_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "ALL PLAYERS", players_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "ALL DINERS", diners_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "ALL SPONSORS", sponsorships_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "LOGOUT", logout_path, class: "col s2 m2 l2 right-align nav-link" %>
+  <% else %>
+    <%= link_to "SPONSOR", new_sponsorships_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "REGISTER PLAYERS", new_players_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "DINNER ONLY", new_diners_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "CONTACT INFO", users_show_path, class: "col s2 m2 l2 right-align nav-link" %>
+  <% end %>
+  </nav>
 
 <body>
 

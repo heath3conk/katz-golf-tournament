@@ -1,0 +1,12 @@
+<tr class="details-row">
+  <td>
+    <ul>
+    <% @diners_signups.players.each do |diner| %>
+      <li><%= "#{diner.diner_first_name} #{diner.diner_last_name}" %></li>
+    <% end %>
+    </ul>
+  </td>
+  <td><%= "#{@diners_signup.first_name} #{@diners_signup.last_name}"%></td>
+  <td class="right-align"><%= @diners_signup.contact_number %></td>
+  <td class="center-align"><%= @diners_signup.paid_status %></td>
+</tr>

@@ -1,16 +1,16 @@
-<tr class="details-row">
-  <td>
-    <ul>
-      <% @sponsors_signups.sponsorship.selected_sponsorships.each do |sponsorship| %>
-        <li><%= sponsorship %></li>
-      <% end %>
-    </ul>
-  </td>
-  <td><%= "#{signup.first_name} #{signup.last_name}"%></td>
-  <td><%= signup.email %></td>
-  <td class="right-align"><%= signup.contact_number %></td>
-  <td class="right-align"><%= number_to_currency(signup.total) %></td>
-  <td class="center-align"><p><%= signup.paid_status %></p><br>
-    <%= button_to "change", signup_path(signup), method: :patch, remote: true, class: "waves-effect waves-light btn-large paid-button" %>
-  </td>
-</tr>
+<% sponsors_signups.each do |signup| %>
+  <tr class="details-row">
+    <td>
+      <ul>
+        <% signup.sponsorship.selected_sponsorships.each do |sponsorship| %>
+          <li><%= sponsorship %></li>
+        <% end %>
+      </ul>
+    </td>
+    <td><%= "#{signup.first_name} #{signup.last_name}"%></td>
+    <td><%= signup.email %></td>
+    <td class="right-align"><%= signup.contact_number %></td>
+    <td class="right-align"><%= number_to_currency(signup.total) %></td>
+    <td class="center-align"><%= signup.paid_status %></td>
+  </tr>
+<% end %>

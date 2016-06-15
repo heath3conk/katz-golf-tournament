@@ -24,7 +24,7 @@ class SignupsController < ApplicationController
     # if !logged_in?
     #   redirect_to new_session_path
     # else 
-      @signups = Signup.all.sort_by{ |signup| signup.total }
+      @signups = Signup.all.sort_by{ |signup| signup.total }.reverse
     # end
   end
 

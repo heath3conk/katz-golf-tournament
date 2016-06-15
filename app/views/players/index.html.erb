@@ -10,7 +10,7 @@
       </tr>
     </thead>
 
-      <%= render partial: 'players', collection: @players_signups %>
+      <%= render partial: 'players', locals: { players_signups: @players_signups }%>
         
     </table>
 </div>

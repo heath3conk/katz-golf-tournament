@@ -11,7 +11,7 @@
       </tr>
     </thead>
 
-      <%= render partial: 'sponsorships', collection: @sponsors_signups %>
+      <%= render partial: 'sponsorships', locals: { sponsors_signups: @sponsors_signups } %>
         
     </table>
 </div>

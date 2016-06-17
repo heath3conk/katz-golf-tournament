@@ -24,13 +24,29 @@
     <%= link_to "LOGOUT", logout_path, class: "col s2 m2 l2 right-align nav-link" %>
   <% else %>
     <%= link_to "SPONSOR", new_sponsorships_path, class: "col s2 m2 l2 right-align nav-link" %>
-    <%= link_to "REGISTER PLAYERS", new_players_path, class: "col s2 m2 l2 right-align nav-link" %>
+    <%= link_to "REGISTER PLAYERS", "#modal1", class: "col s2 m2 l2 right-align modal-trigger nav-link" %>
     <%= link_to "DINNER ONLY", new_diners_path, class: "col s2 m2 l2 right-align nav-link" %>
     <%= link_to "CONTACT INFO", users_show_path, class: "col s2 m2 l2 right-align nav-link" %>
   <% end %>
   </nav>
 
+
 <body>
+
+   <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>How many players would you like to add?</h4>
+      <h5>(including yourself)</h5>
+    </div>
+    <div class="modal-footer">
+      <%= form_tag(new_players_path, method: "get") do %>
+        <%= label_tag(:number, "Total number of players:") %>
+        <%= text_field_tag(:number) %>
+        <%= submit_tag("register players", class: "waves-effect waves-light btn-large modal-action modal-close waves-effect waves-green btn-flat") %>
+      <% end %>
+    </div>
+  </div>
+  </div>
 
 <%= yield %>
 

@@ -21,4 +21,18 @@ $(document).ready(function() {
     event.preventDefault();
     $(this).closest("tr").next("tr").toggleClass("signup-details");
   })
+
+ // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal-trigger').leanModal();
+
+  $('div').on('click', '.modal-action', function(event){
+    event.preventDefault();
+    var signupTypeUrl = $(this).closest("form").attr("action");
+    var signupTypeTotal = $(this).closest("form").children("input#number").val()
+    $.ajax({
+      url: signupTypeUrl,
+      method: "get",
+      data: { numberToSignup: signupTypeTotal }
+    }).done()
+  })
 })

@@ -1,5 +1,5 @@
 <div class="container signup-form">
-  <%= form_for(setup_signup(@signup)) do |f| %>
+  <%= form_for(setup_signup(@signup, @number_of_players.to_i, 0)) do |f| %>
     <% if flash[:errors] %>
       <div class="error-explanation">
         <h4><%= pluralize(flash[:errors].count, "error") %> prohibited this signup from being saved:</h4>
@@ -17,7 +17,7 @@
 
       <div class="field">
         <%= f.label :first_name, "First Name", class: "form-label" %><br>
-        <%= f.text_field :first_name %>
+        <%= f.number_field :first_name %>
 
       </div>
       <div class="field">

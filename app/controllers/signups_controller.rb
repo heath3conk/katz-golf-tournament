@@ -50,7 +50,7 @@ class SignupsController < ApplicationController
   private
 
     def signup_params
-      p params 
+      puts "signup params: #{params}"
       params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, :paid_status, :id, players_attributes: [:id, :player_first_name, :player_last_name], diners_attributes: [:id, :diner_first_name, :diner_last_name], sponsorship_attributes: [:id, :buffet, :beverage_cart, :at_the_turn, :closest_to_pin, :longest_drive, :tee_box])
     end
 

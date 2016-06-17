@@ -6,6 +6,7 @@ class PlayersController < ApplicationController
     # start a new signup record
     @signup = Signup.new
     @players = @signup.players
+    @number_of_players = params[:numberToSignup]
   end
 
   def index 

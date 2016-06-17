@@ -1,11 +1,11 @@
 module FormHelper
 
-  def setup_signup(signup)
+  def setup_signup(signup, players_quantity=4, diners_quantity=2)
     signup.players ||= Player.new
-    4.times { signup.players.build }
+    players_quantity.times { signup.players.build }
 
     signup.diners ||= Diner.new
-    2.times { signup.diners.build }
+    diners_quantity.times { signup.diners.build }
 
     signup.sponsorship ||= Sponsorship.new
 

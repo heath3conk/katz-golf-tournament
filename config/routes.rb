@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/sponsorships/new' => 'sponsorships#new', as: 'new_sponsorships'
 
   get '/players' => 'players#index'
-  get '/players/new' => 'players#new', as: 'new_players'
+  get '/players/new/:count' => 'players#new', as: 'new_players'
 
   get '/diners' => 'diners#index'
   get '/diners/new' => 'diners#new', as: 'new_diners'

@@ -1,6 +1,8 @@
 module FormHelper
 
-  def setup_signup(signup, players_quantity=4, diners_quantity=2)
+  def setup_signup(signup, players_quantity, diners_quantity)
+    p signup
+    p players_quantity
     signup.players ||= Player.new
     players_quantity.times { signup.players.build }
 

@@ -33,6 +33,6 @@ $(document).ready(function() {
       url: signupTypeUrl,
       method: "get",
       data: { numberToSignup: signupTypeTotal }
-    }).done()
+    })
   })
 })

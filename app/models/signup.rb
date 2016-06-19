@@ -47,14 +47,6 @@ class Signup < ActiveRecord::Base
     self.save
   end
 
-  def sort_by_total
-    self.sort do | a, b |
-      if a.total > b.total
-        a <=> b
-      end
-    end
-
-  end
 
   private
 

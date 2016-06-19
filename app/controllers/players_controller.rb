@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
     @signup = Signup.new
     @players = @signup.players
     @number_of_players = params[:numberToSignup]
-    redirect_to new_players_path(@signup, @number_of_players)
+    # redirect_to new_players_path(@signup, @number_of_players)
   end
 
   def index 

@@ -1,5 +1,5 @@
 # Christopher Katzenstein Charity Golf Tournament
-*A Ruby on Rails website designed to allow participants to signup as players, diners or sponsors for the charity golf tournament as well as to enable the event organizer to view and modify those signup records.*
+*A Ruby on Rails website designed to allow participants to signup with players, diners or sponsors for the charity golf tournament as well as to enable the event organizer to view and modify those signup records.*
 
 **Creating a signup.**
 I've used nested forms to create both a `Signup` object and one of the signup-type objects: `Sponsorship`, `Player`, or `Diner`. A signup may have a single sponsorship; a signup may have more than one player or diner. 

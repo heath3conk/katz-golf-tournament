@@ -24,7 +24,7 @@
     <%= link_to "LOGOUT", logout_path, class: "col s2 m2 l2 right-align nav-link" %>
   <% else %>
     <%= link_to "SPONSOR", new_sponsorships_path, class: "col s2 m2 l2 right-align nav-link" %>
-    <%= link_to "REGISTER PLAYERS", "#modal1", class: "col s2 m2 l2 right-align modal-trigger nav-link" %>
+    <%= link_to "REGISTER PLAYERS", new_players_path, class: "col s2 m2 l2 right-align modal-trigger nav-link" %>
     <%= link_to "DINNER ONLY", new_diners_path, class: "col s2 m2 l2 right-align nav-link" %>
     <%= link_to "CONTACT INFO", users_show_path, class: "col s2 m2 l2 right-align nav-link" %>
   <% end %>

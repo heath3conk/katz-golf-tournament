@@ -1,4 +1,3 @@
-<%= javascript_include_tag 'sponsorships' %>
 <div class="container signup-form">
   <%= form_for(setup_signup(@signup)) do |f| %>
     <% if flash[:errors] %>
@@ -62,40 +61,53 @@
       <p class="description">Sponsorship Opportunities:</p>
         <%= f.fields_for :sponsorship do |ff| %>
           <div class="player-info-collection">
-            <div class="input-field">
-              <%= ff.check_box :buffet %>
-              <%= ff.label :buffet, "$1,200 Buffet Sponsorship", class: "form-label" %><br>
-            </div>
-            <div class="input-field">  
-              <%= ff.check_box :beverage_cart %>
-              <%= ff.label :beverage_cart, "$1,000 Beverage Cart Sponsorship", class: "form-label" %><br>
-            </div>
-            <div class="input-field">
-              <%= ff.check_box :at_the_turn %>
-              <%= ff.label :at_the_turn, "$500 At the Turn Sponsorship", class: "form-label" %><br>
-            </div>
-            <div class="input-field"> 
-              <%= ff.check_box :closest_to_pin %>
-              <%= ff.label :closest_to_pin, "$250 Closest to the Pin Sponsorship", class: "form-label" %><br>
-            </div>
-            <div class="input-field">  
-              <%= ff.check_box :longest_drive %>
-              <%= ff.label :longest_drive, "$250 Longest Drive Sponsorship", class: "form-label" %><br>
-            </div>
+            <%= ff.check_box :buffet %>
+            <%= ff.label :buffet, "$1,200 Buffet Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection">
+            <%= ff.check_box :beverage_cart %>
+            <%= ff.label :beverage_cart, "$1,000 Beverage Cart Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection">
+            <%= ff.check_box :at_the_turn %>
+            <%= ff.label :at_the_turn, "$500 At the Turn Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection"> 
+            <%= ff.check_box :closest_to_pin %>
+            <%= ff.label :closest_to_pin, "$250 Closest to the Pin Sponsorship", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection"> 
+            <%= ff.check_box :longest_drive %>
+            <%= ff.label :longest_drive, "$250 Longest Drive Sponsorship", class: "form-label" %><br>
+          </div>
+          <p class="form-label">Tee Box Signs:</p>
+          <div class="player-info-collection">  
+            <%= ff.check_box :tee_box_1 %>
+            <%= ff.label :tee_box_1, "$250 Tee box sign", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection">  
+            <%= ff.check_box :tee_box_2 %>
+            <%= ff.label :tee_box_2, "$400 Tee box sign + 1", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection">  
+            <%= ff.check_box :tee_box_3 %>
+            <%= ff.label :tee_box_3, "$550 Tee box sign + 2", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection"> 
+            <%= ff.check_box :tee_box_4 %>
+            <%= ff.label :tee_box_4, "$700 Tee box sign + 3", class: "form-label" %><br>
+          </div>
+          <div class="player-info-collection">  
+            <%= ff.check_box :tee_box_5 %>
+            <%= ff.label :tee_box_5, "$850 Tee box sign + 4", class: "form-label" %><br>
+          </div>        
+        <% end %>
 
-            <div class="dropdown-button">
-              <%= ff.label :tee_box, "Tee box sign(s)", class: "form-label" %>
-              <%= ff.select :tee_box, options_for_select([['none', 0], ['$250 Tee box sign', 1], ['$400 Tee box sign + 1', 2], ['$550 Tee box sign + 2', 3], ['$700 Tee box sign + 3', 4], ['$850 Tee box sign + 4', 5]]) %>
-            </div>
-        
-          <% end %>
-        </div>
-
-    <div class="actions waves-effect waves-light btn-large players-signup-button">
-      <%= f.submit "Add sponsorships" %>
+      <div class="actions waves-effect waves-light btn-large players-signup-button">
+        <%= f.submit "Add sponsorships" %>
+      </div>
     </div>
-
-    </div>
+  </div>
   <% end %>
 
 </div>

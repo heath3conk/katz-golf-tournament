@@ -33,16 +33,15 @@ class Sponsorship < ActiveRecord::Base
   end
 
   def store_tee_box
-    puts "DO WE EVER GET HERE??????"
-    if self.tee_box_1 = 1
+    if self.tee_box_1 == "1"
       self.tee_box = 1
-    elsif self.tee_box_2 = 1
+    elsif self.tee_box_2 == "1"
       self.tee_box = 2
-    elsif self.tee_box_3 = 1
+    elsif self.tee_box_3 == "1"
       self.tee_box = 3
-    elsif self.tee_box_4 = 1
+    elsif self.tee_box_4 == "1"
       self.tee_box = 4
-    elsif self.tee_box_5 = 1
+    elsif self.tee_box_5 == "1"
       self.tee_box = 5
     else 
       self.tee_box = 0

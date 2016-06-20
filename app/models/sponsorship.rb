@@ -2,6 +2,10 @@ class Sponsorship < ActiveRecord::Base
 
   belongs_to :signup
 
+  attr_accessor :tee_box_1, :tee_box_2, :tee_box_3, :tee_box_4, :tee_box_5
+  before_save :store_tee_box
+  before_update :store_tee_box
+
   def sponsor_total
     sponsorship_total = 0
     if self.tee_box == 0
@@ -28,4 +32,19 @@ class Sponsorship < ActiveRecord::Base
     selection
   end
 
+  def store_tee_box
+    if self.tee_box_1 == "1"
+      self.tee_box = 1
+    elsif self.tee_box_2 == "1"
+      self.tee_box = 2
+    elsif self.tee_box_3 == "1"
+      self.tee_box = 3
+    elsif self.tee_box_4 == "1"
+      self.tee_box = 4
+    elsif self.tee_box_5 == "1"
+      self.tee_box = 5
+    else 
+      self.tee_box = 0
+    end
+  end
 end

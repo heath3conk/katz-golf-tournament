@@ -1,4 +1,5 @@
-$(document).ready(function() {
+var ready;
+ready = function() {
   $(".info-button").on("click", function(){
     $(".prize-info").toggle();
   })
@@ -13,6 +14,7 @@ $(document).ready(function() {
       method: "patch",
       data: { changePaidStatus: true }
     }).done(function(updated_status){
+      console.log(updated_status)
       chosenSignup.html(updated_status.paidStatus);
     })
   });
@@ -35,4 +37,7 @@ $(document).ready(function() {
       data: { numberToSignup: signupTypeTotal }
     }).done()
   })
-})
+}
+
+$(document).ready(ready);
+$(document).on("page:load", ready);

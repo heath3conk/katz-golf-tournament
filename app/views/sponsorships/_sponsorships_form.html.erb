@@ -82,25 +82,8 @@
           </div>
           <p class="form-label">Tee Box Signs:</p>
           <div class="player-info-collection">  
-            <%= ff.check_box :tee_box %>
-            <%= ff.label :tee_box, "$250 Tee box sign", class: "form-label" %><br>
-          </div>
-          <div class="player-info-collection">  
-            <%= ff.check_box :tee_box %>
-            <%= ff.label :tee_box, "$400 Tee box sign + 1", class: "form-label" %><br>
-          </div>
-          <div class="player-info-collection">  
-            <%= ff.check_box :tee_box %>
-            <%= ff.label :tee_box, "$550 Tee box sign + 2", class: "form-label" %><br>
-          </div>
-          <div class="player-info-collection"> 
-            <%= ff.check_box :tee_box %>
-            <%= ff.label :tee_box, "$700 Tee box sign + 3", class: "form-label" %><br>
-          </div>
-          <div class="player-info-collection">  
-            <%= ff.check_box :tee_box %>
-            <%= ff.label :tee_box, "$850 Tee box sign + 4", class: "form-label" %><br>
-          </div>        
+            <%= ff.select :tee_box, options_for_select([["None", 0], ["$250 Tee box sign", 1], ["$400 Tee box sign + 1", 2], ["$550 Tee box sign + 2", 3], ["$700 Tee box sign + 3", 4], ["$850 Tee box sign + 4", 5]]) %> 
+          </div>              
         <% end %>
 
       <div class="actions waves-effect waves-light btn-large players-signup-button">

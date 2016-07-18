@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
         @players_signups << signup
       end
     end
-    @players_signups
+    @players_signups.sort_by!{ |signup| signup.total }.reverse!
   end
 
 end

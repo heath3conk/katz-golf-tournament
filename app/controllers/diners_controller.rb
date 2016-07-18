@@ -16,7 +16,7 @@ class DinersController < ApplicationController
         @diners_signups << signup
       end
     end
-    @diners_signups
+    @diners_signups.sort_by!{ |signup| signup.total }.reverse!
   end
 
 end

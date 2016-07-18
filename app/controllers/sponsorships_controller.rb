@@ -14,7 +14,7 @@ class SponsorshipsController < ApplicationController
         @sponsors_signups << signup
       end
     end
-    @sponsors_signups
+    @sponsors_signups.sort_by!{ |signup| signup.total }.reverse!
   end
 
 end

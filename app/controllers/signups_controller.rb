@@ -43,6 +43,9 @@ class SignupsController < ApplicationController
         redirect_to @signup
       end  
     else
+      if @signup.sponsorship
+        @signup.sponsorship.store_tee_box
+      end
       @signup.update_attributes(signup_params)
       p "update signup uuuuuuuuuuuuuuuuuuuuuuuuuuu"
       p signup_params
@@ -53,7 +56,7 @@ class SignupsController < ApplicationController
   private
 
     def signup_params
-      params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, :paid_status, :id, players_attributes: [:id, :player_first_name, :player_last_name], diners_attributes: [:id, :diner_first_name, :diner_last_name], sponsorship_attributes: [:id, :buffet, :beverage_cart, :at_the_turn, :closest_to_pin, :longest_drive, :tee_box])
+      params.require(:signup).permit(:first_name, :last_name, :company_name, :email, :street_address, :city, :state, :zip, :contact_number, :additional_donation, :paid_status, :id, players_attributes: [:id, :player_first_name, :player_last_name], diners_attributes: [:id, :diner_first_name, :diner_last_name], sponsorship_attributes: [:id, :buffet, :beverage_cart, :at_the_turn, :closest_to_pin, :longest_drive, :tee_box, :tee_box_1, :tee_box_2, :tee_box_3, :tee_box_4, :tee_box_5])
     end
 
     def set_signup

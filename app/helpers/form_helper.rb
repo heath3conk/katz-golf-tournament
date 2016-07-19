@@ -9,7 +9,7 @@ module FormHelper
 
     signup.sponsorship ||= Sponsorship.new
 
-    signup
+    @signup
   end
 
 end

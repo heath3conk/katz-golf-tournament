@@ -4,6 +4,12 @@ ready = function() {
     $(".prize-info").toggle();
   })
 
+  $(".tee").on("click", function(){
+    var teeBox = $(this);
+    $(".tee").prop("checked", false);
+    teeBox.prop("checked", true);
+  })
+
   $(".paid-button").on("click", function(event){
     event.preventDefault();
     var chosenSignup = $(this).closest("td").children("p");

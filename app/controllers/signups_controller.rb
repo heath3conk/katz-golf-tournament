@@ -6,12 +6,13 @@ class SignupsController < ApplicationController
   def create
     @signup = Signup.new(signup_params)
     p "Create signup ccccccccccccccccccc"
-    p signup_params
     if @signup.save
       redirect_to signup_path(@signup)
     else
       case params[:commit]
       when "Add players"
+        # figure out how to send params to the view????
+        # maybe use an 'edit_players' path???
         redirect_to new_players_path(@signup), flash: { errors: @signup.errors.full_messages }
       when "Add sponsorships"
         redirect_to new_sponsorships_path(@signup), flash: { errors: @signup.errors.full_messages }

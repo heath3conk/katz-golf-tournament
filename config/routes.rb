@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/players' => 'players#index'
   get '/players/new' => 'players#new', as: 'new_players'
+  get '/players/edit' => 'players#edit', as: 'edit_players'
 
   get '/diners' => 'diners#index'
   get '/diners/new' => 'diners#new', as: 'new_diners'

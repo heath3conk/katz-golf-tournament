@@ -4,6 +4,11 @@ ready = function() {
     $(".prize-info").toggle();
   })
 
+
+  $("form").on("submit", ".confirm", function(){
+    console.log("go go go");
+  })
+
   $(".tee").on("click", function(){
     var teeBox = $(this);
     $(".tee").prop("checked", false);
@@ -31,18 +36,18 @@ ready = function() {
   })
 
  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-  $('.modal-trigger').leanModal();
+  // $('.modal-trigger').leanModal();
 
-  $('div').on('click', '.modal-action', function(event){
-    event.preventDefault();
-    var signupTypeUrl = $(this).closest("form").attr("action");
-    var signupTypeTotal = $(this).closest("form").children("input#number").val()
-    $.ajax({
-      url: signupTypeUrl,
-      method: "get",
-      data: { numberToSignup: signupTypeTotal }
-    }).done()
-  })
+  // $('div').on('click', '.modal-action', function(event){
+  //   event.preventDefault();
+  //   var signupTypeUrl = $(this).closest("form").attr("action");
+  //   var signupTypeTotal = $(this).closest("form").children("input#number").val()
+  //   $.ajax({
+  //     url: signupTypeUrl,
+  //     method: "get",
+  //     data: { numberToSignup: signupTypeTotal }
+  //   }).done()
+  // })
 }
 
 $(document).ready(ready);

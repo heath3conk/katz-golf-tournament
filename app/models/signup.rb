@@ -51,7 +51,7 @@ class Signup < ActiveRecord::Base
   private
 
   def normalize_phone_number
-    working_number = self.contact_number.gsub!(/\D/, "")
+    working_number = self.contact_number.gsub(/\D/, "")
     unless working_number.length < 10
       working_number.insert(0, "(").insert(4, ") ").insert(9, "-")
       self.contact_number = working_number.slice(0..13)

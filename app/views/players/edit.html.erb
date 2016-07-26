@@ -1,6 +1,6 @@
 <div class="container signup-form">
-  <% @players_count = @number_of_players ||= "4" %>
-  <%= form_for(setup_signup(@signup, @players_count.to_i, 0)) do |f| %>
+  <% players_count = @signup.players.count %>
+  <%= form_for @signup, @players_count.to_i, 0)) do |f| %>
     <% if flash[:errors] %>
       <div class="error-explanation">
         <h4><%= pluralize(flash[:errors].count, "error") %> prohibited this signup from being saved:</h4>

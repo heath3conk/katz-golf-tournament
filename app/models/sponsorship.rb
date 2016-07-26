@@ -26,7 +26,7 @@ class Sponsorship < ActiveRecord::Base
     selection << "At the Turn Sponsorship" * self.at_the_turn
     selection << "Closest to Pin Sponsorship" * self.closest_to_pin
     selection << "Longest Drive Sponsorship" * self.longest_drive
-    if tee_box > 0
+    if self.tee_box > 0
       selection << "#{self.tee_box} Tee Box Sign(s)"
     end
     selection

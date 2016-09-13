@@ -3,9 +3,7 @@ class DinersController < ApplicationController
   before_action :authenticate!, only: [:index]
 
   def new
-    # start a new signup record
     @signup = Signup.new
-    @diners = @signup.diners
   end
 
   def index 
